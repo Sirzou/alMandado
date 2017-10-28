@@ -1,0 +1,18 @@
+<h2>Show Lista</h2>
+
+<ul>
+
+  <li>
+    <strong>Fecha:</strong>
+    <%= @lista.fecha %>
+  </li>
+
+  <li>
+    <strong>Nombre:</strong>
+    <%= @lista.nombre %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: lista_path(@conn, :edit, @lista) %></span>
+<span><%= link "Back", to: lista_path(@conn, :index) %></span>

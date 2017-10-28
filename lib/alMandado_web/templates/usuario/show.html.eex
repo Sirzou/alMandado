@@ -1,0 +1,28 @@
+<h2>Show Usuario</h2>
+
+<ul>
+
+  <li>
+    <strong>Nickname:</strong>
+    <%= @usuario.nickname %>
+  </li>
+
+  <li>
+    <strong>Color:</strong>
+    <%= @usuario.color %>
+  </li>
+
+  <li>
+    <strong>Correo:</strong>
+    <%= @usuario.correo %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @usuario.password %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: usuario_path(@conn, :edit, @usuario) %></span>
+<span><%= link "Back", to: usuario_path(@conn, :index) %></span>

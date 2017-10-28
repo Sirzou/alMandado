@@ -1,0 +1,28 @@
+<h2>Listing Listas</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Nombre</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for lista <- @listas do %>
+    <tr>
+      <td><%= lista.fecha %></td>
+      <td><%= lista.nombre %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: lista_path(@conn, :show, lista), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: lista_path(@conn, :edit, lista), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: lista_path(@conn, :delete, lista), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Lista", to: lista_path(@conn, :new) %></span>

@@ -1,0 +1,18 @@
+<h2>Show Item</h2>
+
+<ul>
+
+  <li>
+    <strong>Nombre:</strong>
+    <%= @item.nombre %>
+  </li>
+
+  <li>
+    <strong>Img:</strong>
+    <%= @item.img %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: item_path(@conn, :edit, @item) %></span>
+<span><%= link "Back", to: item_path(@conn, :index) %></span>
