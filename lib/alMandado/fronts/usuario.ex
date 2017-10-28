@@ -22,12 +22,11 @@ defmodule AlMandado.Fronts.Usuario do
     struct
     |> cast(params, [:nickname, :color, :correo, :password_prime, :password_confirmation])
     |> validate_required([:nickname, :color, :correo, :password_prime, :password_confirmation])
-    |> validate_format(:email, ~r/@/)
-    |> validate_inclusion(:age, 18..100)
     |> hash_password
   end
+
   defp hash_password(changeset) do
-    if password_prime = get_change(changeset, :password) do
+    if password_prime = get_change(changeset, :password_prime) do
       changeset
       |> put_change(:password, hashpwsalt(password_prime))
     else
