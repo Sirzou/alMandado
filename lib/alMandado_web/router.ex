@@ -19,7 +19,8 @@ defmodule AlMandadoWeb.Router do
     resources "/listas", ListaController
     resources "/usuarios", UsuarioController
     resources "/items", ItemController
-
+    resources "/sessions", SessionController, only: [:new, :create]
+    
     get "/", PageController, :index
   end
 
