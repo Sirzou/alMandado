@@ -10,7 +10,7 @@ defmodule AlMandadoWeb.SessionController do
   end
 
   def create(conn, %{"user" => user_params}) do
-  	Repo.get_by(User, username: user_params["username"])
+  	Repo.get_by(User, nickname: user_params["nickname"])
   	|> sign_in(user_params["password"], conn)
   end
 
@@ -19,11 +19,11 @@ defmodule AlMandadoWeb.SessionController do
   	|> put_flash(:error, "Usuario o combinacion invalida")
   	|> redirect(to: page_path(conn, :index))
   end
-
+  
   defp sign_in(user, password, conn) do
   	if checkpwd(password,user.password) do
   	  conn
-  	  |> put_session(:current_user, %{id: user.id, username: user.username})
+  	  |> put_session(:current_user, %{id: user.id, nickname: user.nickname})
   	  |> put_flash(:info, "identificado correctamente")
   	  |> redirect(to: page_path(conn, :index))
   	else
